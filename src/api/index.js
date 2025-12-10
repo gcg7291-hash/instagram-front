@@ -45,6 +45,9 @@ export const signup = (data) => api.post('/api/auth/signup', data);
 export const login = (data) => api.post('/api/auth/login', data);
 export const getMe = () => api.get('/api/auth/me');
 
+// 카카오 로그인 API
+export const kakaoLogin = (code) => api.post('/api/auth/kakao', { code });
+
 // 게시물 API
 export const getPosts = () => api.get('/api/posts');
 export const getPost = (id) => api.get(`/api/posts/${id}`);

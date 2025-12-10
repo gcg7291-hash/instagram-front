@@ -9,6 +9,7 @@ import AllPostsPage from './pages/AllPostsPage';
 import ProfilePage from './pages/ProfilePage';
 import PostDetailPage from './pages/PostDetailPage';
 import CreatePostPage from './pages/CreatePostPage';
+import KakaoCallback from './pages/KakaoCallback';
 import './styles/App.css';
 
 // 인증이 필요한 라우트
@@ -62,6 +63,10 @@ function App() {
               </PublicRoute>
             }
           />
+
+          {/* 카카오 콜백 (인증 불필요) */}
+          <Route path="/oauth/kakao/callback" element={<KakaoCallback />} />
+
           {/* 인증 필요 라우트 */}
           <Route
             path="/"

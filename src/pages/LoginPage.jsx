@@ -14,6 +14,12 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  // 카카오 로그인 핸들러
+  const handleKakaoLogin = () => {
+    const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`;
+    window.location.href = kakaoAuthUrl;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -67,6 +73,21 @@ const LoginPage = () => {
             {loading ? '로그인 중...' : '로그인'}
           </button>
         </form>
+
+        {/* 구분선 */}
+        <div className="divider">
+          <span>또는</span>
+        </div>
+
+        {/* 카카오 로그인 버튼 */}
+        <button
+          type="button"
+          onClick={handleKakaoLogin}
+          className="kakao-login-btn"
+        >
+          <span className="kakao-icon">K</span>
+          카카오로 로그인
+        </button>
 
         <p className="auth-link">
           계정이 없으신가요? <Link to="/signup">가입하기</Link>
